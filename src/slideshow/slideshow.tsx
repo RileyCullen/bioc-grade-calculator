@@ -1,5 +1,7 @@
 import { Button, Container, Grid2 } from '@mui/material';
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode } from 'react';
+import AnimatedSlide from './slide/animated-slide';
+import { useSlideChange } from './use-slide-change';
 
 interface SlideshowProps {
     children: ReactNode;
@@ -8,7 +10,12 @@ interface SlideshowProps {
 export function Slideshow(props: SlideshowProps) {
     const { children } = props;
     const slides = React.Children.toArray(children);
-    const [ currentSlide, setCurrentSlide ] = useState(0);
+    const {
+        currentSlide,
+        slideDirection,
+        nextSlide,
+        previousSlide
+    } = useSlideChange(0);
 
     return (
         <Container maxWidth='lg' sx={{ height: '95vh', marginTop: '15px' }}>
@@ -19,9 +26,12 @@ export function Slideshow(props: SlideshowProps) {
                 alignItems='center'
                 spacing={3}
             >
-                <>
+                <AnimatedSlide
+                    direction={slideDirection}
+                    slideId={`slide-number-${currentSlide}`}
+                >
                     {slides[currentSlide]}
-                </>
+                </AnimatedSlide>
                 <Grid2
                     container
                     spacing={2}
@@ -30,7 +40,7 @@ export function Slideshow(props: SlideshowProps) {
                         variant='contained'
                         color='primary'
                         disabled={currentSlide === 0}
-                        onClick={() => setCurrentSlide(currentSlide - 1)}
+                        onClick={() => previousSlide()}
                     >
                         Back
                     </Button>
@@ -38,7 +48,7 @@ export function Slideshow(props: SlideshowProps) {
                         variant='contained'
                         color='primary'
                         disabled={currentSlide === (slides.length - 1)}
-                        onClick={() => setCurrentSlide(currentSlide + 1)}
+                        onClick={() => nextSlide()}
                     >
                         Next
                     </Button>
