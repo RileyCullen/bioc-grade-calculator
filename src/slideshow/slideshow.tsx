@@ -5,10 +5,11 @@ import { useSlideChange } from './use-slide-change';
 
 interface SlideshowProps {
     children: ReactNode;
+    disableNext?: boolean;
 }
 
 export function Slideshow(props: SlideshowProps) {
-    const { children } = props;
+    const { children, disableNext } = props;
     const slides = React.Children.toArray(children);
     const {
         currentSlide,
@@ -47,7 +48,7 @@ export function Slideshow(props: SlideshowProps) {
                     <Button
                         variant='contained'
                         color='primary'
-                        disabled={currentSlide === (slides.length - 1)}
+                        disabled={disableNext || currentSlide === (slides.length - 1)}
                         onClick={() => nextSlide()}
                     >
                         Next
