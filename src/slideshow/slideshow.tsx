@@ -1,14 +1,33 @@
 import { Button, Container, Grid2 } from '@mui/material';
 import React, { ReactNode } from 'react';
-import AnimatedSlide from './slide/animated-slide';
+import AnimatedSlide from './slide';
 import { useSlideChange } from './use-slide-change';
 
 interface SlideshowProps {
+    /**
+     * Slide content to be rendered within slideshow.
+     * 
+     * Each direct child constitutes a separate slide. I.e.,
+     * 
+     * <Slideshow>
+     *    <div>Direct Child 1</div>
+     *    <div>Direct Child 2</div>
+     * </Slideshow>
+     * 
+     * will have 2 separate slides.
+     */
     children: ReactNode;
+    /** Disables next button from being clickable. */
     disableNext?: boolean;
 }
 
-export function Slideshow(props: SlideshowProps) {
+/**
+ * Component that renders one or more {@link AnimatedSlide} components.
+ * 
+ * Only one slide displays on the screen at a time, and next/previous slides are
+ * accessible via a "Next" and "Previous" button.
+ */
+function Slideshow(props: SlideshowProps) {
     const { children, disableNext } = props;
     const slides = React.Children.toArray(children);
     const {
@@ -58,3 +77,5 @@ export function Slideshow(props: SlideshowProps) {
         </Container>
     )
 }
+
+export default Slideshow;

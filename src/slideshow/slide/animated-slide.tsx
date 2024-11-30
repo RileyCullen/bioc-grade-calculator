@@ -1,13 +1,24 @@
 import { motion, AnimatePresence } from 'motion/react';
 import Slide, { SlideProps } from './slide';
 
+/**
+ * Represents direction of the slide.
+ * 
+ * {@link variants} code below is coupled to the value of this enum so do not
+ * change!
+ */
 export enum SlideDirection {
     LEFT = -1,
     RIGHT = 1
 }
 
 interface AnimatedSlideProps extends SlideProps {
+    /** Direction of slide animation. */
     direction: SlideDirection | null;
+    /**
+     * Unique ID to represent the slide. This is needed for motion to know when
+     * to animate items if still in the DOM.
+     */
     slideId: string;
 };
 
@@ -33,7 +44,7 @@ const variants = {
     }
 };
   
-
+/** Wrapper around {@link Slide} component that provides animation. */
 function AnimatedSlide(props: AnimatedSlideProps) {
     const { children, direction, slideId } = props
 

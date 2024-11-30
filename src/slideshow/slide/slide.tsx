@@ -2,9 +2,11 @@ import { Card, Container, Grid2 } from '@mui/material';
 import { ReactNode } from 'react';
 
 export interface SlideProps {
+    /** Components to render within {@link Card} element. */
     children: ReactNode;
 }
 
+/** Wrapper around card component that centers content within slideshow. */
 function Slide(props: SlideProps) {
     const { children } = props;
 
