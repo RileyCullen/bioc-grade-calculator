@@ -11,27 +11,38 @@ export function Slideshow(props: SlideshowProps) {
     const [ currentSlide, setCurrentSlide ] = useState(0);
 
     return (
-        <Container maxWidth='lg' sx={{ border: '1px solid red'}}>
+        <Container maxWidth='lg' sx={{ height: '95vh', marginTop: '15px' }}>
             <Grid2
                 container
-                direction='row'
+                direction='column'
                 justifyContent='center'
                 alignItems='center'
-                spacing={0}
+                spacing={3}
             >
-                <Button
-                    disabled={currentSlide === 0}
-                    onClick={() => setCurrentSlide(currentSlide - 1)}
+                <>
+                    {slides[currentSlide]}
+                </>
+                <Grid2
+                    container
+                    spacing={2}
                 >
-                    Back
-                </Button>
-                {slides[currentSlide]}
-                <Button
-                    disabled={currentSlide === (slides.length - 1)}
-                    onClick={() => setCurrentSlide(currentSlide + 1)}
-                >
-                    Next
-                </Button>
+                    <Button
+                        variant='contained'
+                        color='primary'
+                        disabled={currentSlide === 0}
+                        onClick={() => setCurrentSlide(currentSlide - 1)}
+                    >
+                        Back
+                    </Button>
+                    <Button
+                        variant='contained'
+                        color='primary'
+                        disabled={currentSlide === (slides.length - 1)}
+                        onClick={() => setCurrentSlide(currentSlide + 1)}
+                    >
+                        Next
+                    </Button>
+                </Grid2>
             </Grid2>
         </Container>
     )
