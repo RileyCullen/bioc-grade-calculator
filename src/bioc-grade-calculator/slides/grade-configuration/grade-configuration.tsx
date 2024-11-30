@@ -8,7 +8,7 @@ interface GradeConfigurationProps {
 }
 
 function GradeConfiguration(props: GradeConfigurationProps) {
-    const { state } = props
+    const { state, setState } = props
     return (
         <>
             <CardHeader
@@ -18,6 +18,10 @@ function GradeConfiguration(props: GradeConfigurationProps) {
             <CardContent>
                 <GradeTable
                     rows={state.gradeTableRows}
+                    setTableRows={(rows) => setState({
+                        ...state,
+                        gradeTableRows: rows
+                    })}
                 />
             </CardContent>
         </>

@@ -1,9 +1,11 @@
-import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { GradeTableRow } from '../../types';
 
 interface GradeTableProps {
     /** Current table information to be displayed. */
     rows: GradeTableRow[];
+    /** Update grade table rows. */
+    setTableRows(rows: GradeTableRow[]): void;
 }
 
 // This is coupled to GradeTableRow defintion. There is probably a better way to
@@ -32,28 +34,30 @@ const COLUMN_DEF: GridColDef[] = [
         headerName: 'Score',
         type: 'number',
         editable: true
-    },
-    {
-        field: 'zScore',
-        headerName: 'Z-Score',
-        type: 'number',
-        editable: false
     }
 ];
 
 function GradeTable(props: GradeTableProps) {
-    const { rows } = props;
-    const dataGridRows = createDataGridRows(rows);
+    const { rows, setTableRows } = props;
     return (
-        <DataGrid rows={dataGridRows} columns={COLUMN_DEF} />
+        <DataGrid
+            rows={rows}
+            columns={COLUMN_DEF}
+            processRowUpdate={processRowUpdate}
+        />
     );
-}
 
-function createDataGridRows(rows: GradeTableRow[]): GridRowsProp {
-    return rows.map((row, i) => ({
-        ...row,
-        id: i 
-    }));
+    /** Keeps application state in-sync with table. */
+    function processRowUpdate(
+        updatedRow: GradeTableRow,
+        originalRow: GradeTableRow
+    ) {
+        const newRows = [...rows];
+        const idx = newRows.findIndex((row) => row.id === originalRow.id)
+        newRows[idx] = updatedRow;
+        setTableRows(newRows);
+        return updatedRow
+    }
 }
 
 export default GradeTable;
