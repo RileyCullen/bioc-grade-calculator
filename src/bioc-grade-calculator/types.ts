@@ -1,6 +1,7 @@
 export interface GradeState {
     /** Grade table. */
     gradeTableRows: GradeTableRow[];
+    /** Fixed grade variables that impact final calculation. */
     fixedGradeVariables: FixedGradeVariables
 }
 
@@ -18,7 +19,13 @@ export interface GradeTableRow {
 }
 
 export interface FixedGradeVariables {
+    /**
+     * Sum of the final normalized mean for all students divided by the number
+     * of students.
+     */
     finalNormalizedMean: number;
+    /** GPA? */
     gpa: number;
+    /** Cutoff for a 4.0. */
     cutoff: number;
 }

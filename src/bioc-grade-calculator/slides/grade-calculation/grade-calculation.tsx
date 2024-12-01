@@ -6,9 +6,11 @@ import calculateFinalGrade from './calculate-final-grade';
 import { MathJax } from 'better-react-mathjax';
 
 interface GradeCalculationProps {
+    /** Grade information used to make final calculation. */
     state: GradeState;
 }
 
+/** Displays grade calculation and calculation breakdown. */
 function GradeCalculation(props: GradeCalculationProps) {
     const { state } = props;
     const {
@@ -24,6 +26,7 @@ function GradeCalculation(props: GradeCalculationProps) {
         () => getRowsSortedByZScore(gradeTableRows),
         [gradeTableRows]
     );
+    // Business logic that really should be moved to a separate component.
     const topThreeZScores = sortedRowsWithZScore
         .slice(0, 3).map((row) => row.zScore);
 
@@ -77,6 +80,7 @@ interface CalculationBreakdownProps {
     finalGrade: number;
 }
 
+/** Displays a breakdown of the calculation. */
 function CalculationBreakdown(props: CalculationBreakdownProps) {
     const {
         rowsWithZScore,

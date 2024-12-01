@@ -1,6 +1,10 @@
 import { GradeTableRow } from '../../types';
 
 export interface GradeTableRowWithZScore extends GradeTableRow {
+    /**
+     * Z-score computed using average, standardDeviation, and score from
+     * original GradeTableRow.
+     */
     zScore: number;
 }
 
