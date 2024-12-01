@@ -1,6 +1,7 @@
 import { CardContent, CardHeader } from '@mui/material';
-import { GradeState } from '../../types';
+import { FixedGradeVariables as IFixedGradeVariables, GradeState } from '../../types';
 import GradeTable from './grade-table';
+import FixedGradeVariables from './fixed-grade-variables';
 
 interface GradeConfigurationProps {
     state: GradeState;
@@ -9,6 +10,7 @@ interface GradeConfigurationProps {
 
 function GradeConfiguration(props: GradeConfigurationProps) {
     const { state, setState } = props
+    const { gradeTableRows, fixedGradeVariables } = state;
     return (
         <>
             <CardHeader
@@ -17,10 +19,17 @@ function GradeConfiguration(props: GradeConfigurationProps) {
             />
             <CardContent>
                 <GradeTable
-                    rows={state.gradeTableRows}
+                    rows={gradeTableRows}
                     setTableRows={(rows) => setState({
                         ...state,
                         gradeTableRows: rows
+                    })}
+                />
+                <FixedGradeVariables
+                    state={fixedGradeVariables}
+                    setState={(newState: IFixedGradeVariables) => setState({
+                        ...state,
+                        fixedGradeVariables: newState
                     })}
                 />
             </CardContent>

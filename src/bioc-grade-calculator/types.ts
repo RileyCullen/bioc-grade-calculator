@@ -1,6 +1,7 @@
 export interface GradeState {
     /** Grade table. */
     gradeTableRows: GradeTableRow[];
+    fixedGradeVariables: FixedGradeVariables
 }
 
 export interface GradeTableRow {
@@ -14,4 +15,10 @@ export interface GradeTableRow {
     standardDeviation: number;
     /** User's personal grade for entry. */
     score: number;
+}
+
+export interface FixedGradeVariables {
+    finalNormalizedMean: number;
+    gpa: number;
+    cutoff: number;
 }

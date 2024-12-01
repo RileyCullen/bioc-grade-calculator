@@ -36,7 +36,12 @@ function BiocGradeCalculator() {
                 standardDeviation: 0,
                 score: 0
             }
-        ]
+        ],
+        fixedGradeVariables: {
+            finalNormalizedMean: 0.89,
+            gpa: 2.8,
+            cutoff: 1.53
+        }
     });
 
     return (
