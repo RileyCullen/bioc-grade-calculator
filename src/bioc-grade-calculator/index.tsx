@@ -45,7 +45,9 @@ function BiocGradeCalculator() {
                 state={state}
                 setState={(newState) => setState(newState)}
             />
-            <GradeCalculation />
+            <GradeCalculation
+                state={state}
+            />
         </Slideshow>
     );
 }

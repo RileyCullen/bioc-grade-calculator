@@ -1,6 +1,14 @@
-function GradeCalculation() {
+import { GradeState } from '../../types';
+
+interface GradeCalculationProps {
+    state: GradeState;
+}
+
+function GradeCalculation(props: GradeCalculationProps) {
     return (
-        <p>Grade Slide</p>
+        <>
+            {JSON.stringify(props.state)}
+        </>
     );
 }
 
