@@ -133,7 +133,7 @@ function CalculationBreakdown(props: CalculationBreakdownProps) {
         <Typography variant='body2' sx={{ marginTop: '15px' }}>
             The final calculation for your grade is then: <wbr />
             <MathJax inline>
-                {`\\(${gpa} + (4.0 - ${gpa})
+                {`\\(${gpa} + (4.0 - ${gpa}) *
                     \\frac{
                         ${averageZScore.toFixed(2)} - ${finalNormalizedMean}
                     }{
