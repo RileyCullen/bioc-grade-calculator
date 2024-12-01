@@ -48,6 +48,7 @@ function GradeTable(props: GradeTableProps) {
             rows={rows}
             columns={COLUMN_DEF}
             processRowUpdate={processRowUpdate}
+            hideFooter
         />
     );
 
