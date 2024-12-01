@@ -18,7 +18,7 @@ function Slide(props: SlideProps) {
                 justifyContent='center'
                 alignItems='center'
             >
-                <Card sx={{ width: '100%', height: '85vh' }}>
+                <Card sx={{ width: '100%', height: '85vh', overflow: 'auto' }}>
                     { children }
                 </Card>
             </Grid2>
