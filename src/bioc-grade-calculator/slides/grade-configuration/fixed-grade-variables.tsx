@@ -31,7 +31,7 @@ function FixedGradeVariables(props: FixedGradeVariablesProps){
                 }}
             />
             <TextField
-                label='GPA'
+                label='Normalized Mean to GPA'
                 type='number'
                 defaultValue={gpa}
                 onChange={(e) => {
