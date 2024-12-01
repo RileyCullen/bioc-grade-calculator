@@ -38,13 +38,14 @@ function Slideshow(props: SlideshowProps) {
     } = useSlideChange(0);
 
     return (
-        <Container maxWidth='lg' sx={{ height: '95vh', marginTop: '15px' }}>
+        <Container maxWidth='lg' sx={{ height: '95vh' }}>
             <Grid2
                 container
                 direction='column'
                 justifyContent='center'
                 alignItems='center'
-                spacing={3}
+                spacing={1}
+                sx={{ height: '95vh' }}
             >
                 <AnimatedSlide
                     direction={slideDirection}
