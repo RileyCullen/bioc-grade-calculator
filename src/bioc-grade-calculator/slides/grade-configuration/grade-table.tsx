@@ -15,25 +15,29 @@ const COLUMN_DEF: GridColDef[] = [
         field: 'name',
         headerName: 'Name',
         type: 'string',
-        editable: false
+        editable: false,
+        flex: 1
     },
     {
         field: 'average',
         headerName: 'Average',
         type: 'number',
-        editable: true
+        editable: true,
+        flex: 1
     },
     {
         field: 'standardDeviation',
         headerName: 'Standard Deviation',
         type: 'number',
-        editable: true
+        editable: true,
+        flex: 1
     },
     {
         field: 'score',
         headerName: 'Score',
         type: 'number',
-        editable: true
+        editable: true,
+        flex: 1
     }
 ];
 
