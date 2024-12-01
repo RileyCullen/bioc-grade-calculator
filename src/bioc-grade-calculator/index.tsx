@@ -11,34 +11,34 @@ function BiocGradeCalculator() {
             {
                 id: 0,
                 name: 'Exam 1',
-                average: 0,
-                standardDeviation: 0,
-                score: 0
+                average: 58.9,
+                standardDeviation: 19.6,
+                score: 74.1
             },
             {
                 id: 1,
                 name: 'Exam 2',
-                average: 0,
-                standardDeviation: 0,
-                score: 0
+                average: 62,
+                standardDeviation: 16.2,
+                score: 53
             },
             {
                 id: 2,
                 name: 'Exam 3',
-                average: 0,
-                standardDeviation: 0,
-                score: 0
+                average: 61.7,
+                standardDeviation: 17.9,
+                score: 81.5
             },
             {
                 id: 3,
                 name: 'Exam 4',
-                average: 0,
-                standardDeviation: 0,
-                score: 0
+                average: 56.9,
+                standardDeviation: 16.9,
+                score: 70.4
             }
         ],
         fixedGradeVariables: {
-            finalNormalizedMean: 0.89,
+            finalNormalizedMean: 0.12,
             gpa: 2.8,
             cutoff: 1.53
         }
